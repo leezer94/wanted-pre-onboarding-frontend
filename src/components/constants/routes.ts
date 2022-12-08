@@ -4,7 +4,7 @@ const ROUTES = {
     NAME: 'Home',
   },
   TODO: {
-    PATH: '/',
+    PATH: '/todo',
     NAME: 'Todo',
   },
   LOGIN: {

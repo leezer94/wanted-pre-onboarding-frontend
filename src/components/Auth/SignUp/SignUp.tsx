@@ -17,6 +17,7 @@ const SignUpForm = () => {
         placeholder='이메일을 입력해 주세요'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        autoComplete='off'
       />
       <S.Border />
       <label htmlFor='password'>Password</label>
@@ -27,6 +28,7 @@ const SignUpForm = () => {
         placeholder='비밀번호를 입력해 주세요'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        autoComplete='off'
       />
       <S.Border />
       <ShadowButton type='submit' content='회원가입' />

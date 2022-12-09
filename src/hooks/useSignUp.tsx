@@ -1,4 +1,5 @@
 import { postSignUp } from '@/apis';
+import ROUTES from '@/components/constants/routes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +22,7 @@ const useSignUp = () => {
 
     if (response?.status === 201) {
       alert('회원가입이 완료되었습니다.');
-      navigate('/login');
+      navigate(ROUTES.LOGIN.PATH);
     }
   };
 

@@ -15,13 +15,15 @@ const postSignUp = async (userInfo: UserInfo) => {
 };
 
 const postSignIn = async (userInfo: UserInfo) => {
-  const data = await authClient.post('/auth/signin', userInfo);
+  const response = await authClient.post('/auth/signin', userInfo);
 
-  const accessToken = data.data.access_token;
+  const accessToken = response.data.access_token;
+
+  localStorage.setItem('access_token', accessToken);
 
   setAuthToken(accessToken);
 
-  return data;
+  return response;
 };
 
 export { postSignUp, postSignIn };

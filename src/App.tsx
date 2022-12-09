@@ -1,3 +1,4 @@
+import useAuthContext from '@/hooks/useAuthContext';
 import PAGES from '@/pages';
 import { useRoutes } from 'react-router-dom';
 

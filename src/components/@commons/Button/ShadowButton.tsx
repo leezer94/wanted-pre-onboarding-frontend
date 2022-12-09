@@ -1,13 +1,14 @@
 import * as S from './Button.style';
 
 type ShadowButton = {
+  type: 'submit' | 'button';
   content: string;
   onClick?: () => void;
 };
 
-const ShadowButton = ({ content, ...rest }: ShadowButton) => {
+const ShadowButton = ({ type, content, ...rest }: ShadowButton) => {
   return (
-    <S.ShadowButton type='button' {...rest}>
+    <S.ShadowButton type={type} {...rest}>
       {content}
     </S.ShadowButton>
   );

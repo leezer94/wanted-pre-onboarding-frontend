@@ -8,14 +8,10 @@ type Route = {
   element: JSX.Element;
   name?: string;
   path?: string;
+  children?: Route[];
 };
 
 const PAGES: Route[] = [
-  {
-    path: ROUTES.HOME.PATH,
-    name: ROUTES.HOME.NAME,
-    element: <Home />,
-  },
   {
     path: ROUTES.TODO.PATH,
     name: ROUTES.TODO.NAME,
@@ -30,6 +26,11 @@ const PAGES: Route[] = [
     path: ROUTES.SIGN_UP.PATH,
     name: ROUTES.SIGN_UP.NAME,
     element: <SignUp />,
+  },
+  {
+    path: ROUTES.HOME.PATH,
+    name: ROUTES.HOME.NAME,
+    element: <Home />,
   },
 ];
 

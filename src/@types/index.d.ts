@@ -3,3 +3,8 @@ declare type Todo = {
   title: string;
   completed: boolean;
 };
+
+declare type UserInfo = {
+  email?: string;
+  password?: string;
+};

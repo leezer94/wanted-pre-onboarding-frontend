@@ -4,7 +4,12 @@ import { Navigate, Outlet } from 'react-router-dom';
 import ROUTES from '@/components/constants/routes';
 
 const PublicRouter = () => {
-  const { user: isAuth } = useAuthContext();
+  let isAuth: AuthType = null;
+  const value = localStorage.getItem('user');
+
+  if (typeof value === 'string') {
+    isAuth = JSON.parse(value);
+  }
 
   useEffect(() => {
     if (isAuth) {

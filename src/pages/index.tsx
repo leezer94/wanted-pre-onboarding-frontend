@@ -39,7 +39,6 @@ const PAGES: Route[] = [
       },
     ],
   },
-
   {
     path: ROUTES.HOME.PATH,
     name: ROUTES.HOME.NAME,

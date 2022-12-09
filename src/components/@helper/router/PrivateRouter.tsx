@@ -4,7 +4,12 @@ import { Navigate, Outlet } from 'react-router-dom';
 import ROUTES from '@/components/constants/routes';
 
 const PrivateRouter = () => {
-  const { user: isAuth } = useAuthContext();
+  let isAuth: AuthType = null;
+  const value = localStorage.getItem('user');
+
+  if (typeof value === 'string') {
+    isAuth = JSON.parse(value);
+  }
 
   useEffect(() => {
     if (!isAuth) {
@@ -12,7 +17,7 @@ const PrivateRouter = () => {
     }
   }, [isAuth]);
 
-  return isAuth ? <Outlet /> : <Navigate to={ROUTES.LOGIN.PATH} replace />;
+  return !isAuth ? <Navigate to={ROUTES.LOGIN.PATH} replace /> : <Outlet />;
 };
 
 export default PrivateRouter;

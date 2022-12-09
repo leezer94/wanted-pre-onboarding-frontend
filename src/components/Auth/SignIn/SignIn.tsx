@@ -9,7 +9,10 @@ const SignInForm = () => {
   const { handleSignIn, error } = useSignIn();
 
   return (
-    <S.AuthForm onSubmit={(e) => handleSignIn(e, { email, password })}>
+    <S.AuthForm
+      autoComplete='off'
+      onSubmit={(e) => handleSignIn(e, { email, password })}
+    >
       <label htmlFor='email'>Email</label>
       <input
         type='email'

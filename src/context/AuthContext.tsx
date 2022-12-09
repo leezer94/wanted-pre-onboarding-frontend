@@ -1,8 +1,8 @@
 import { createContext, PropsWithChildren, useReducer } from 'react';
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext<any>(null);
 
-const authReducer = (state: any, action: any) => {
+export const authReducer = (state: any, action: any) => {
   switch (action.type) {
     case 'LOGIN':
       return { user: action.payload };
@@ -13,12 +13,10 @@ const authReducer = (state: any, action: any) => {
   }
 };
 
-const AuthContextProvider = ({ children }: PropsWithChildren) => {
-  const [state, dispatch] = useReducer(authReducer, {
-    user: null,
-  });
+export const AuthContextProvider = ({ children }: PropsWithChildren) => {
+  const [state, dispatch] = useReducer(authReducer, { user: null });
 
-  console.log('AuthContext State : ', state);
+  console.log('AuthContext state: ', state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
@@ -26,5 +24,3 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
     </AuthContext.Provider>
   );
 };
-
-export { AuthContext, authReducer, AuthContextProvider };

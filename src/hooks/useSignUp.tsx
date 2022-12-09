@@ -20,7 +20,7 @@ const useSignUp = () => {
       }
     });
 
-    if (response?.status === 201) {
+    if (response) {
       alert('회원가입이 완료되었습니다.');
       navigate(ROUTES.LOGIN.PATH);
     }

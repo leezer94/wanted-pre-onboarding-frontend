@@ -19,7 +19,12 @@ const postSignIn = async (userInfo: UserInfo) => {
 
   const accessToken = response.data.access_token;
 
-  localStorage.setItem('access_token', accessToken);
+  if (accessToken) {
+    localStorage.setItem(
+      'user',
+      JSON.stringify({ email: userInfo.email, token: accessToken }),
+    );
+  }
 
   setAuthToken(accessToken);
 

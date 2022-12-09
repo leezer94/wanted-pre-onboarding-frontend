@@ -1,13 +1,14 @@
 import { postSignIn } from '@/apis';
-import setAuthToken from '@/components/@helper/utils/setAuthToken';
 import ROUTES from '@/components/constants/routes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAuthContext from '@/hooks/useAuthContext';
 
 const useSignIn = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const { dispatch } = useAuthContext();
 
   const handleSignIn = async (e: any, userInfo: UserInfo) => {
     e.preventDefault();
@@ -26,8 +27,12 @@ const useSignIn = () => {
     });
 
     if (response?.status === 200) {
+      dispatch({ type: 'LOGIN', payload: userInfo.email });
+
       alert('성공적으로 로그인이 완료되었습니다.');
       navigate(ROUTES.TODO.PATH);
+
+      setIsLoading(false);
     }
   };
 

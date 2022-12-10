@@ -1,3 +1,4 @@
+import setAuthToken from '@/components/@helper/utils/setAuthToken';
 import { createContext, PropsWithChildren, useReducer, useEffect } from 'react';
 
 export const AuthContext = createContext<any>(null);
@@ -19,8 +20,12 @@ export const AuthContextProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const user = localStorage.getItem('user');
 
+    if (user === null) return;
+    const token = JSON.parse(user).token;
+
     if (user) {
       dispatch({ type: 'LOGIN', payload: user });
+      setAuthToken(token);
     }
   }, []);
 

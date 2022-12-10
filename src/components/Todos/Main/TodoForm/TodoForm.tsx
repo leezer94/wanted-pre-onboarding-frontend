@@ -1,5 +1,6 @@
 import * as S from './TodoForm.style';
 import { useState } from 'react';
+import { getTodos } from '@/apis';
 
 export const TodoForm = () => {
   const [title, setTitle] = useState<string>('');
@@ -18,7 +19,7 @@ export const TodoForm = () => {
           autoComplete='off'
           onChange={(e) => setTitle(e.target.value)}
         />
-        <S.Button type='button' name='submit'>
+        <S.Button type='button' name='submit' onClick={() => getTodos()}>
           Add
         </S.Button>
       </S.Container>

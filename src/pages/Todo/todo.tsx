@@ -1,9 +1,10 @@
-import TodoForm from '@/components/Todos/TodoForm';
+import { Header, Main } from '@/components/Todos';
 
 const Todo = () => {
   return (
     <div>
-      <TodoForm />
+      <Header />
+      <Main />
     </div>
   );
 };

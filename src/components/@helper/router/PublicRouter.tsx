@@ -1,4 +1,4 @@
-import useAuthContext from '@/hooks/useAuthContext';
+import useAuthContext from '@/hooks/auth/useAuthContext';
 import { useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import ROUTES from '@/components/constants/routes';

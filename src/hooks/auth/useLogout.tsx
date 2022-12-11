@@ -1,5 +1,5 @@
 import ROUTES from '@/components/constants/routes';
-import useAuthContext from '@/hooks/useAuthContext';
+import useAuthContext from '@/hooks/auth/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const useLogout = () => {

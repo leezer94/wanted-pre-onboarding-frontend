@@ -2,7 +2,7 @@ import { postSignIn } from '@/apis';
 import ROUTES from '@/components/constants/routes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuthContext from '@/hooks/useAuthContext';
+import useAuthContext from '@/hooks/auth/useAuthContext';
 
 const useSignIn = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import ShadowButton from '@/components/@commons/Button/ShadowButton';
-import useSignIn from '@/hooks/useSIgnIn';
+import useSignIn from '@/hooks/auth/useSIgnIn';
 import { useState } from 'react';
 import * as S from '../Auth.style';
 

@@ -10,6 +10,11 @@ const List = styled.li`
   padding-top: 0.5rem;
   padding-bottom: 0.625rem;
   align-items: center;
+
+  .active {
+    color: lightgrey;
+    text-decoration: line-through;
+  }
 `;
 
 const Button = styled.button`

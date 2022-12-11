@@ -58,11 +58,11 @@ const getTodos = async () => {
 
 const updateTodo = async (
   id: number,
-  newTodo: { todo?: string; isCompleted?: boolean },
+  newTodo: { todo?: string | null; isCompleted?: boolean },
 ) => {
   const { data } = await apiClient.put(`/todos/${id}`, {
-    todo: newTodo.todo,
-    isCompleted: newTodo.isCompleted,
+    todo: newTodo?.todo,
+    isCompleted: newTodo?.isCompleted,
   });
 
   return data;

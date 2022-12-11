@@ -18,37 +18,16 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier', 'import'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     camelcase: 'error',
     'spaced-comment': 'error',
     quotes: ['error', 'single'],
     'no-duplicate-imports': 'error',
-    rules: {
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-      'react/react-in-j≤sx-scope': 'off',
-      'import/order': [
-        'error',
-        {
-          groups: ['builtin', 'external', ['parent', 'sibling'], 'index'],
-          pathGroups: [
-            {
-              pattern: '@/**',
-              group: 'external',
-              position: 'after',
-            },
-          ],
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-          'newlines-between': 'always',
-        },
-      ],
-    },
+    'react/prop-types': 0,
   },
+
   settings: {
     'import/resolver': {
       typescript: {},

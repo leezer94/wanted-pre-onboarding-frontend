@@ -37,12 +37,12 @@ const PAGES: Route[] = [
         name: ROUTES.SIGN_UP.NAME,
         element: <SignUp />,
       },
+      {
+        path: ROUTES.HOME.PATH,
+        name: ROUTES.HOME.NAME,
+        element: <Home />,
+      },
     ],
-  },
-  {
-    path: ROUTES.HOME.PATH,
-    name: ROUTES.HOME.NAME,
-    element: <Home />,
   },
 ];
 

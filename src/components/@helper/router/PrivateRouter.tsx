@@ -16,7 +16,7 @@ const PrivateRouter = () => {
     }
   }, [isAuth]);
 
-  return !isAuth ? <Navigate to={ROUTES.LOGIN.PATH} replace /> : <Outlet />;
+  return !isAuth ? <Navigate to={ROUTES.HOME.PATH} replace /> : <Outlet />;
 };
 
 export default PrivateRouter;

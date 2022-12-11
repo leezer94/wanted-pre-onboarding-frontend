@@ -120,7 +120,6 @@ ${({ theme }) => css`
     width: 50%;
     height: 100%;
     line-height: 1;
-    border: 1px solid black;
 
     margin: 0 auto;
   }

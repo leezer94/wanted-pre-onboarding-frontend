@@ -13,8 +13,6 @@ const Wrapper = styled.div`
   margin-top: 10%;
 
   padding: 100px;
-
-  border: 1px solid red;
 `;
 
 export { Wrapper };

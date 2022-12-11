@@ -15,6 +15,8 @@ const Main = () => {
       setData(todos);
     };
 
+    console.log('todo');
+
     fetchData();
   }, []);
 

@@ -51,7 +51,16 @@ const createTodo = async (todo: string) => {
 };
 
 const getTodos = async () => {
-  const { data } = await apiClient.get('/todos');
+  let user;
+  const value = localStorage.getItem('user');
+
+  if (value) user = JSON.parse(value);
+
+  const { data } = await apiClient.get('/todos', {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
+  });
 
   return data;
 };

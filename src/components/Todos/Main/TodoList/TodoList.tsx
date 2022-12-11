@@ -1,7 +1,7 @@
 import * as S from './TodoList.style';
 import List from '@/components/Todos/Main/TodoList/List';
 
-const TodoList = ({ data, setData }: any) => {
+const TodoList = ({ data, setData }: { data: any; setData: any }) => {
   return (
     <S.Ul>
       {data?.map(

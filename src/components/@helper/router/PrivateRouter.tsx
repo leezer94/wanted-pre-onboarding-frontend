@@ -1,4 +1,3 @@
-import useAuthContext from '@/hooks/auth/useAuthContext';
 import { useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import ROUTES from '@/components/constants/routes';
@@ -7,7 +6,7 @@ const PrivateRouter = () => {
   let isAuth: AuthType = null;
   const value = localStorage.getItem('user');
 
-  if (typeof value === 'string') {
+  if (value) {
     isAuth = JSON.parse(value);
   }
 

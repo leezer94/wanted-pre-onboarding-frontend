@@ -1,7 +1,7 @@
 declare type Todo = {
-  id?: number;
-  todo: string;
-  isCompleted: boolean;
+  id?: number | undefined;
+  todo?: string | undefined;
+  isCompleted?: boolean | undefined;
 };
 
 declare type UserInfo = {

@@ -1,4 +1,9 @@
 import ShadowButton from '@/components/@commons/Button/ShadowButton';
+import {
+  emailValidator,
+  formValidator,
+  passwordValidator,
+} from '@/components/@helper/utils/validator';
 import useSignIn from '@/hooks/auth/useSIgnIn';
 import { useState } from 'react';
 import * as S from '../Auth.style';
@@ -22,6 +27,7 @@ const SignInForm = () => {
         onChange={(e) => setEmail(e.target.value)}
         autoComplete='off'
       />
+      <S.InputErrorMessage>{emailValidator(email)}</S.InputErrorMessage>
       <S.Border />
       <label htmlFor='password'>Password</label>
       <input
@@ -33,8 +39,13 @@ const SignInForm = () => {
         onChange={(e) => setPassword(e.target.value)}
         autoComplete='off'
       />
+      <S.InputErrorMessage>{passwordValidator(password)}</S.InputErrorMessage>
       <S.Border />
-      <ShadowButton type='submit' content='로그인' />
+      <ShadowButton
+        type='submit'
+        content='로그인'
+        disabled={formValidator(email, password) ? false : true}
+      />
       {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
     </S.AuthForm>
   );

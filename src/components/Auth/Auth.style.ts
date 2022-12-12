@@ -21,4 +21,9 @@ const ErrorMessage = styled.p`
   letter-spacing: 1px;
 `;
 
-export { AuthForm, Border, ErrorMessage };
+const InputErrorMessage = styled.span`
+  color: red;
+  margin-top: 10px;
+`;
+
+export { AuthForm, Border, ErrorMessage, InputErrorMessage };

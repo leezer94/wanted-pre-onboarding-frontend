@@ -15,7 +15,6 @@ const Border = styled.div`
 
 const ErrorMessage = styled.p`
   margin-top: 40px;
-  font-weight: bold;
   color: red;
   font-size: 18px;
   letter-spacing: 1px;
@@ -24,6 +23,7 @@ const ErrorMessage = styled.p`
 const InputErrorMessage = styled.span`
   color: red;
   margin-top: 10px;
+  font-size: 13px;
 `;
 
 export { AuthForm, Border, ErrorMessage, InputErrorMessage };

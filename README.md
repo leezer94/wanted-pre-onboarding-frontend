@@ -1,3 +1,28 @@
+# 🏁 프로젝트 실행 방법
+
+해당 프로젝트를 로컬에서 실행하고 싶다면 하단의 절차를 따르면 됩니다.
+
+```
+$ npm install
+$ npm run start
+```
+
+현재 리포지토리를 클론한 뒤, 위 순서대로 입력하면 localhost:3000 포트에서 해당 코드가 실행됩니다.
+
+---
+
+## 배포링크
+
+[링크](https://wanted-pre-onboarding-frontend-tau.vercel.app/)
+[https://wanted-pre-onboarding-frontend-tau.vercel.app/]
+
+---
+
+## 숏 에세이 링크
+
+[링크](https://velog.io/@leezer94/%EC%9B%90%ED%8B%B0%EB%93%9C-%ED%94%84%EB%A6%AC%EC%98%A8%EB%B3%B4%EB%94%A9-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%9D%B8%ED%84%B4%EC%8B%AD-%EC%B0%B8%EA%B0%80-%EC%97%90%EC%84%B8%EC%9D%B4-%EC%9D%B4%EA%B1%B4%ED%9D%AC)
+[https://velog.io/@leezer94/%EC%9B%90%ED%8B%B0%EB%93%9C-%ED%94%84%EB%A6%AC%EC%98%A8%EB%B3%B4%EB%94%A9-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%9D%B8%ED%84%B4%EC%8B%AD-%EC%B0%B8%EA%B0%80-%EC%97%90%EC%84%B8%EC%9D%B4-%EC%9D%B4%EA%B1%B4%ED%9D%AC]
+
 # 과제
 
 :: 1. 로그인 / 회원가입 / 경로에 로그인 / 회원가입 기능을 개발해주세요

@@ -1,10 +1,14 @@
+import { MESSAGE } from '@/components/constants';
+
 const emailValidator = (email: string) => {
   let errorMessage = '';
 
-  if (!email) errorMessage = '이메일을 입력해 주세요.';
+  if (email.length === 0) return errorMessage;
+
+  if (!email) errorMessage = MESSAGE.EMAIL_INPUT_EMPTY;
 
   if (!email?.includes('@')) {
-    errorMessage = '이메일 @ 이 포함되지 않았습니다.';
+    errorMessage = MESSAGE.EMAIL_AT_NEEDED;
   }
 
   return errorMessage;
@@ -13,10 +17,12 @@ const emailValidator = (email: string) => {
 const passwordValidator = (password: string) => {
   let errorMessage = '';
 
-  if (!password) errorMessage = '패스워드를 입력해 주세요.';
+  if (password.length === 0) return errorMessage;
+
+  if (!password) errorMessage = MESSAGE.PASSWORD_INPUT_EMPTY;
 
   if (password.length < 8) {
-    errorMessage = '패스워드는 8자 이상이어야 합니다.';
+    errorMessage = MESSAGE.PASSWORD_LENGTH;
   }
 
   return errorMessage;

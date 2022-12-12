@@ -9,6 +9,10 @@ const MESSAGE = {
   PUBLIC_ROUTE: '로그인한 사용자는 접근 불가능한 페이지입니다.',
   PUBLIC_ROUTE_TODO: '이미 로그인 되어있어 Todo 페이지로 리 다이렉팅 됩니다.',
   TODO_EMPTY: '할일을 입력해 주세요.',
+  EMAIL_INPUT_EMPTY: '이메일을 입력해 주세요.',
+  EMAIL_AT_NEEDED: '이메일에 @ 이 포함되지 않았습니다.',
+  PASSWORD_INPUT_EMPTY: '패스워드를 입력해 주세요.',
+  PASSWORD_LENGTH: '패스워드는 8자 이상이어야 합니다.',
 };
 
 export default MESSAGE;

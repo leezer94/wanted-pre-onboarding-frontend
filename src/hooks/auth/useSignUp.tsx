@@ -1,4 +1,5 @@
 import { postSignUp } from '@/apis';
+import { MESSAGE } from '@/components/constants';
 import ROUTES from '@/components/constants/routes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -16,12 +17,12 @@ const useSignUp = () => {
     const response = await postSignUp(userInfo).catch(({ response }) => {
       if (response.status === 400) {
         setIsLoading(false);
-        setError('이미 존재하는 회원입니다.');
+        setError(MESSAGE.USER_ALREADY_EXIST);
       }
     });
 
     if (response) {
-      alert('회원가입이 완료되었습니다.');
+      alert(MESSAGE.SIGNIN_SUCCEED);
       navigate(ROUTES.LOGIN.PATH);
     }
   };

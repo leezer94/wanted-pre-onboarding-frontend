@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import ROUTES from '@/components/constants/routes';
+import { MESSAGE } from '@/components/constants';
 
 const PrivateRouter = () => {
   let isAuth: AuthType = null;
@@ -12,7 +13,7 @@ const PrivateRouter = () => {
 
   useEffect(() => {
     if (!isAuth) {
-      alert('로그인 후에 이용가능한 페이지 입니다.');
+      alert(MESSAGE.PRIVATE_ROUTE);
     }
   }, [isAuth]);
 

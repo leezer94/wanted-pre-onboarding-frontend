@@ -1,6 +1,7 @@
 import * as S from './TodoForm.style';
 import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
 import { createTodo } from '@/apis';
+import { MESSAGE } from '@/components/constants';
 
 export const TodoForm = ({
   data,
@@ -16,6 +17,11 @@ export const TodoForm = ({
     title: string,
   ) => {
     e.preventDefault();
+
+    if (!title) {
+      alert(MESSAGE.TODO_EMPTY);
+      return;
+    }
 
     const newTodo = await createTodo(title);
 

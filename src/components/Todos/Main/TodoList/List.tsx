@@ -22,7 +22,7 @@ const List = memo(
       const target = data.find((todo: Todo) => todo.id === id);
       const newTodo: string | null = prompt('새로운 할일을 입력해 주세요.');
 
-      if (newTodo === '') return;
+      if (newTodo === null) return;
 
       const modifiedTodo = await updateTodo(id, {
         todo: newTodo,

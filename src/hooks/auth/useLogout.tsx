@@ -1,4 +1,4 @@
-import ROUTES from '@/components/constants/routes';
+import { ROUTES, MESSAGE } from '@/components/constants';
 import useAuthContext from '@/hooks/auth/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const useLogout = () => {
   const { dispatch } = useAuthContext();
 
   const handleLogout = () => {
-    const logoutConfirmMessage = confirm('정말 로그아웃 하시겠습니까 ?');
+    const logoutConfirmMessage = confirm(MESSAGE.LOGOUT_CONFIRM);
 
     if (logoutConfirmMessage) {
       dispatch({ type: 'LOGOUT' });

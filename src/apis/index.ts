@@ -5,28 +5,18 @@ const apiClient = axios.create({
   baseURL: process.env.REACT_APP_SERVER_URL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${
-      JSON.parse(localStorage.getItem('user') || '{}').token
-    }`,
-  },
-});
-
-const authClient = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
-  headers: {
-    'Content-Type': 'application/json',
   },
 });
 
 // Auth Related
 const postSignUp = async (userInfo: UserInfo) => {
-  const data = await authClient.post('/auth/signup', userInfo);
+  const data = await apiClient.post('/auth/signup', userInfo);
 
   return data;
 };
 
 const postSignIn = async (userInfo: UserInfo) => {
-  const response = await authClient.post('/auth/signin', userInfo);
+  const response = await apiClient.post('/auth/signin', userInfo);
 
   const accessToken = response.data.access_token;
 
@@ -45,7 +35,20 @@ const postSignIn = async (userInfo: UserInfo) => {
 // Todo Related
 
 const createTodo = async (todo: string) => {
-  const { data } = await apiClient.post('/todos', { todo });
+  let user;
+  const value = localStorage.getItem('user');
+
+  if (value) user = JSON.parse(value);
+
+  const { data } = await apiClient.post(
+    '/todos',
+    { todo },
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    },
+  );
 
   return data;
 };
@@ -69,16 +72,31 @@ const updateTodo = async (
   id: number,
   newTodo: { todo?: string | null; isCompleted?: boolean },
 ) => {
-  const { data } = await apiClient.put(`/todos/${id}`, {
-    todo: newTodo?.todo,
-    isCompleted: newTodo?.isCompleted,
+  let user;
+  const value = localStorage.getItem('user');
+
+  if (value) user = JSON.parse(value);
+
+  const { data } = await apiClient.put(`/todos/${id}`, newTodo, {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
   });
 
   return data;
 };
 
 const deleteTodo = async (id: number) => {
-  return await apiClient.delete(`/todos/${id}`);
+  let user;
+  const value = localStorage.getItem('user');
+
+  if (value) user = JSON.parse(value);
+
+  return await apiClient.delete(`/todos/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
+  });
 };
 
 export { postSignUp, postSignIn };

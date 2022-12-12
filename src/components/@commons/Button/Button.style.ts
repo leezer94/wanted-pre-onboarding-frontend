@@ -8,7 +8,8 @@ const ShadowButton = styled.button`
   padding: 10px 40px;
   border: 1px solid none;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.BLUE};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? 'gray' : theme.BLUE};
   box-shadow: 20px 30px 30px 0 rgb(0 31 68 / 30%);
   color: white;
   font-weight: 500;

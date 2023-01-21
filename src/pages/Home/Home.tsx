@@ -1,7 +1,7 @@
 import * as S from './Home.style';
 import ShadowButton from '@/components/@commons/Button/ShadowButton';
 import { useNavigate } from 'react-router-dom';
-import ROUTES from '../../components/constants/routes';
+import ROUTES from '../../constants/routes';
 
 const Home = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { postSignUp } from '@/apis';
-import { MESSAGE } from '@/components/constants';
-import ROUTES from '@/components/constants/routes';
+import { MESSAGE } from '@/constants';
+import ROUTES from '@/constants/routes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

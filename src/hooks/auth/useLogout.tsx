@@ -1,4 +1,4 @@
-import { ROUTES, MESSAGE } from '@/components/constants';
+import { ROUTES, MESSAGE } from '@/constants';
 import useAuthContext from '@/hooks/auth/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 

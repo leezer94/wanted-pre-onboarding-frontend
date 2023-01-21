@@ -1,9 +1,9 @@
 import { postSignIn } from '@/apis';
-import ROUTES from '@/components/constants/routes';
+import ROUTES from '@/constants/routes';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuthContext from '@/hooks/auth/useAuthContext';
-import { MESSAGE } from '@/components/constants';
+import { MESSAGE } from '@/constants';
 
 const useSignIn = () => {
   const navigate = useNavigate();

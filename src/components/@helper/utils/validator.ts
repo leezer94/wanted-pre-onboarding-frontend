@@ -1,4 +1,4 @@
-import { MESSAGE } from '@/components/constants';
+import { MESSAGE } from '@/constants';
 
 const emailValidator = (email: string) => {
   let errorMessage = '';

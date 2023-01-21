@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import ROUTES from '@/components/constants/routes';
-import { MESSAGE } from '@/components/constants';
+import ROUTES from '@/constants/routes';
+import { MESSAGE } from '@/constants';
 
 const PublicRouter = () => {
   const { pathname } = useLocation();

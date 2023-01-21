@@ -1,4 +1,4 @@
-import PageWrapper from '@/components/PageWrapper/PageWrapper';
+import PageWrapper from '@/components/@commons/PageWrapper/PageWrapper';
 import ShadowCard from '@/components/@commons/Card/ShadowCard';
 import SignUpForm from '@/components/Auth/SignUp/SignUp';
 import ShadowButton from '@/components/@commons/Button/ShadowButton';

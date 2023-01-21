@@ -1,5 +1,5 @@
 import ShadowCard from '@/components/@commons/Card/ShadowCard';
-import PageWrapper from '@/components/PageWrapper/PageWrapper';
+import PageWrapper from '@/components/@commons/PageWrapper/PageWrapper';
 import SignInForm from '@/components/Auth/SignIn/SignIn';
 import ShadowButton from '@/components/@commons/Button/ShadowButton';
 import { useNavigate } from 'react-router-dom';

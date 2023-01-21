@@ -1,7 +1,7 @@
 import * as S from './TodoForm.style';
 import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
 import { createTodo } from '@/apis';
-import { MESSAGE } from '@/components/constants';
+import { MESSAGE } from '@/constants';
 
 export const TodoForm = ({
   data,

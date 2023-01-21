@@ -2,7 +2,7 @@ import Home from '@/pages/Home/Home';
 import SignUp from '@/pages/SignUp/SIgnUp';
 import Login from '@/pages/Login/Login';
 import Todo from '@/pages/Todo/todo';
-import ROUTES from '@/components/constants/routes';
+import ROUTES from '@/constants/routes';
 import PrivateRouter from '@/components/@helper/router/PrivateRouter';
 import PublicRouter from '@/components/@helper/router/PublicRouter';
 

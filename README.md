@@ -112,3 +112,103 @@ $ npm run start
 | hooks     | 비지니스 로직을 hooks 에 분리                                              |
 | constants | 상수를 관심사에 따라 분리                                                  |
 | styles    | styled-component 관련 로직                                                 |
+
+---
+# 기능 관련
+
+## 상태관리
+
+- 앱의 규모가 작은 Todo App 이기 때문에 따로 상태관리 라이브러리 없이 Context Api 로 AuthProvider 를 제공해주는 방식으로 구현을 했습니다.
+- 상태의 전달 / 끌어올리기가 필요한 Todo 컴포넌트에는 하위 컴포넌트로의 depth 최대 2 정도로 낮았기 때문에 props 로 넘겨주는 방식을 채택했습니다.
+
+## 로그인 ( Auth )
+
+- AuthProvider 를 index.tsx 파일의 APP 컴포넌트 상위에 배치해 APP 컴포넌트의 상위에서 앱 시작 시점 이점에 평가 될 수 있도록 했습니다.
+- 토큰은 과제 요구사항에 맞게 로컬스토리지에 관리되며 로그아웃기에 관련 정보를 로컬스토리지에 삭제합니다.
+- useSignUp / useSignIn hook 을 구현해 내부에서 응답 상태코드에 따른 에러를 핸들링합니다.
+- 아쉬웠던 점은 api 선언부에서 토큰이 필요한 요청은 header 에 Authorization 에 토큰을 모두 넘겨주고 있는데 axios 의 intercepter 기능을 사용해서 분리 할 수 있었다고 생각합니다.
+
+```jsx
+import setAuthToken from '@/components/@helper/utils/setAuthToken';
+import { createContext, PropsWithChildren, useReducer, useEffect } from 'react';
+
+export const AuthContext = createContext<any>(null);
+
+export const authReducer = (state: any, action: any) => {
+  switch (action.type) {
+    case 'LOGIN':
+      return { user: action.payload };
+    case 'LOGOUT':
+      return { user: null };
+    default:
+      return state;
+  }
+};
+
+export const AuthContextProvider = ({ children }: PropsWithChildren) => {
+  const [state, dispatch] = useReducer(authReducer, { user: null });
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+
+    if (user === null) return;
+    const token = JSON.parse(user).token;
+
+    if (user) {
+      dispatch({ type: 'LOGIN', payload: user });
+      setAuthToken(token);
+    }
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+```
+
+## 라우팅
+
+- react-router-dom 의 useRoutes hook 을 이용 pages 폴더의 index.tsx 파일에서 트리구조로 관리 됩니다.
+
+- Private / Public Router 컴포넌트를 구현해 로컬스토리지의 토큰을 기반으로 로그인 / 비로그인 유저의 페이지 접근을 관리했습니다.
+
+```jsx
+const PAGES: Route[] = [
+  {
+    element: <PrivateRouter />,
+    children: [
+      {
+        path: ROUTES.TODO.PATH,
+        name: ROUTES.TODO.NAME,
+        element: <Todo />,
+      },
+    ],
+  },
+  {
+    element: <PublicRouter />,
+    children: [
+      {
+        path: ROUTES.LOGIN.PATH,
+        name: ROUTES.LOGIN.NAME,
+        element: <Login />,
+      },
+      {
+        path: ROUTES.SIGN_UP.PATH,
+        name: ROUTES.SIGN_UP.NAME,
+        element: <SignUp />,
+      },
+      {
+        path: ROUTES.HOME.PATH,
+        name: ROUTES.HOME.NAME,
+        element: <Home />,
+      },
+    ],
+  },
+];
+```
+
+
+
+
